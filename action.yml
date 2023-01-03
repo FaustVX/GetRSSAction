@@ -21,5 +21,5 @@ runs:
       with:
         dotnet-version: '7'
     - id: run
-      run: dotnet run -- ${{ steps.run.inputs.url }} ${{ steps.run.inputs.title-regex }} ${{ steps.run.inputs.xpath-out-selector }}
+      run: dotnet run --project ${GITHUB_ACTION_PATH}/TestAction.csproj -- ${{ inputs.url }} ${{ inputs.title-regex }} ${{ inputs.xpath-out-selector }}
       shell: bash
