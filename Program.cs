@@ -1,5 +1,7 @@
-﻿using System.Xml;
+﻿using System;
+using System.Xml;
 using System.Text.RegularExpressions;
+using System.Net.Http;
 
 if (args is [string url, string pattern, string xpath] && Uri.TryCreate(url, UriKind.Absolute, out var uri))
 {
