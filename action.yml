@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Get RSS/ATOM Data'
+description: 'Get datas from RSS/ATOM feed'
 inputs:
   url:
     description: 'RSS/ATOM url'
