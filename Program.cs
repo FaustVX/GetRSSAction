@@ -12,7 +12,7 @@ if (args is [string url, string pattern, string xpath] && Uri.TryCreate(url, Uri
             if (regex.IsMatch(node["title"]!.FirstChild!.Value!))
             {
                 var xPathNavigator = node.CreateNavigator()!;
-                Console.WriteLine($"out='{xPathNavigator.SelectSingleNode(xpath)!.Value}'");
+                Console.WriteLine(xPathNavigator.SelectSingleNode(xpath)!.Value);
                 return;
             }
 }
