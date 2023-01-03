@@ -22,3 +22,4 @@ runs:
         dotnet-version: '7'
     - id: run
       run: dotnet run -- ${{ steps.run.inputs.url }} ${{ steps.run.inputs.title-regex }} ${{ steps.run.inputs.xpath-out-selector }}
+      shell: bash
