@@ -20,6 +20,9 @@ runs:
     - uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7'
+    - id: build
+      run: dotnet build ${GITHUB_ACTION_PATH}/TestAction.csproj -c Release
+      shell: bash
     - id: run
-      run: dotnet run --project ${GITHUB_ACTION_PATH}/TestAction.csproj -- ${{ inputs.url }} ${{ inputs.title-regex }} ${{ inputs.xpath-out-selector }}
+      run: dotnet run --project ${GITHUB_ACTION_PATH}/TestAction.csproj -c Release -- ${{ inputs.url }} ${{ inputs.title-regex }} ${{ inputs.xpath-out-selector }}
       shell: bash
