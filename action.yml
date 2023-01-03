@@ -1,0 +1,24 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  url:
+    description: 'RSS/ATOM url'
+    required: true
+  title-regex:
+    description: 'Title Regex Match'
+    required: true
+  xpath-out-selector:
+    description: 'XPath relative to selected `item`/`entry`'
+    required: true
+outputs:
+  selection:
+    description: "Selection based on XPath"
+    value: ${{ steps.run.outputs.out }}
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7'
+    - id: run
+      run: dotnet run -- ${{ steps.run.inputs.url }} ${{ steps.run.inputs.title-regex }} ${{ steps.run.inputs.xpath-out-selector }}
