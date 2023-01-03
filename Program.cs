@@ -12,9 +12,9 @@ if (args is [string url, string pattern, string xpath] && Uri.TryCreate(url, Uri
     var first = ((xmlDocument["feed"]?["entry"])??(xmlDocument["rss"]?["channel"]?["item"]));
     for (var node = (XmlNode)first!; node != null; node = node.NextSibling)
     {
-        if (!node.HasChildNodes || node["title"] is null)
+        if (!node.HasChildNodes || node["title"] is not XmlElement { FirstChild.Value: string title })
             continue;
-        if (regex.IsMatch(node["title"]!.FirstChild!.Value!))
+        if (regex.IsMatch(title))
         {
             var xPathNavigator = node.CreateNavigator()!.Select(xpath);
             if (!xPathNavigator.MoveNext())
