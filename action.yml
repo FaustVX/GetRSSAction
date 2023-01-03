@@ -1,5 +1,10 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
 name: 'Get RSS/ATOM Data'
 description: 'Get datas from RSS/ATOM feed'
+author: FaustVX
+branding:
+  icon: 'rss'
+  color: 'orange'
 inputs:
   url:
     description: 'RSS/ATOM url'
