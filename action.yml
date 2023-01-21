@@ -29,5 +29,5 @@ runs:
       run: dotnet build ${GITHUB_ACTION_PATH}/TestAction.csproj -c Release
       shell: bash
     - id: run
-      run: echo "out=$(dotnet run --project ${GITHUB_ACTION_PATH}/TestAction.csproj -c Release -- '${{ inputs.url }}' '${{ inputs.title-regex }}' '${{ inputs.xpath-out-selector }}')" >> $GITHUB_OUTPUT
+      run: OUT=$(dotnet run --project ${GITHUB_ACTION_PATH}/TestAction.csproj -c Release -- '${{ inputs.url }}' '${{ inputs.title-regex }}' '${{ inputs.xpath-out-selector }}') && echo "out=$OUT" >> $GITHUB_OUTPUT
       shell: bash
